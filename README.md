@@ -7,9 +7,7 @@
 
 ## The app in pictures
 
-<video controls>
-  <source src="https://github.com/Navedms/cityWeatherApp/blob/main/assets/screenShots/appvid.mp4" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R4whQknDBHw?si=QMTMtd8X_f1z7Y2v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <p align="center"><img style="margin: 30px;" width="250" src="https://github.com/Navedms/cityWeatherApp/blob/main/assets/screenShots/1.png"></p><br><br>
 <p align="center"><img width="250" src="https://github.com/Navedms/cityWeatherApp/blob/main/assets/screenShots/2.png"></p><br><br>
