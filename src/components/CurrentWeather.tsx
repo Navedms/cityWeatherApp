@@ -1,11 +1,5 @@
 import React from "react";
-import {
-	View,
-	StyleSheet,
-	TouchableOpacity,
-	Platform,
-	ImageBackground,
-} from "react-native";
+import { View, StyleSheet, TouchableOpacity, Platform } from "react-native";
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 
 import Text from "../components/Text";
@@ -142,8 +136,8 @@ const styles = StyleSheet.create({
 	},
 	degree: {
 		paddingTop: 16,
-		marginLeft: Platform.OS === "android" ? 4 : -3,
-		marginRight: Platform.OS === "android" ? -5 : 0,
+		marginLeft: -3,
+		marginRight: 0,
 	},
 	unitContainer: {
 		marginTop: 10,

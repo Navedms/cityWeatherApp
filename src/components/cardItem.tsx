@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	View,
 	StyleSheet,
 	TouchableOpacity,
-	Platform,
-	Image,
 	Dimensions,
 	ImageBackground,
 } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import Text from "./Text";
 import colors from "../config/colors";
 
 interface CardItemProps {
-	itemKey: string;
 	title: string;
 	subTitle?: string;
 	image: string;
@@ -22,7 +19,6 @@ interface CardItemProps {
 }
 
 function CardItem({
-	itemKey,
 	title,
 	subTitle,
 	image,

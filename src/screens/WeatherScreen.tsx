@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import dayjs from "dayjs";
 import { useSelector, useDispatch } from "react-redux";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import type { RouteProp } from "@react-navigation/native";
 
 import Activityindicator from "../components/Activityindicator";
 import Screen from "../components/Screen";
@@ -23,10 +25,15 @@ import {
 	onFilter,
 } from "../features/itemsData/itemsDataSlice";
 import Text from "../components/Text";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import routes from "../navigation/routes";
 
-function WeatherScreen({ navigation, route }) {
+interface Props {
+	navigation: any;
+	route: RouteProp<any>;
+}
+
+function WeatherScreen({ navigation, route }: Props) {
+	// params
 	const current = route.params;
 
 	//state (redux)

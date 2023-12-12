@@ -23,7 +23,9 @@ export interface IFilters {
 	unit: string;
 }
 
-const mokData = {
+// MOC DB of 20 citys. 19 active and one (Natanaya) not active.
+
+const mocData = {
 	list: [
 		{
 			id: "telaviv",
@@ -288,8 +290,16 @@ const mokData = {
 	],
 };
 
+// MOC server response of the moc list after filter and sort.
+// the filter have 3 parameters:
+// 1. return only active cities.
+// 2 and 3: return information according to city and country filters.
+
+// after the filter, its sorts the list according to user preferences.
+// sorttype = "city" | "distance";
+
 const get = (filters: IFilters, sort: Sort) => {
-	const list = mokData.list.filter(
+	const list = mocData.list.filter(
 		(item: Data) =>
 			item.active &&
 			(item.city.toLowerCase().includes(filters.text.toLowerCase()) ||

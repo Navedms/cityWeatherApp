@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import dayjs from "dayjs";
 import { useSelector, useDispatch } from "react-redux";
 import { useIsFocused } from "@react-navigation/native";
+import type { RouteProp } from "@react-navigation/native";
 
 import Activityindicator from "../components/Activityindicator";
 import NoResults from "../components/NoResults";
@@ -23,7 +24,11 @@ import Text from "../components/Text";
 var duration = require("dayjs/plugin/duration");
 dayjs.extend(duration);
 
-function Main({ navigation, route }) {
+interface Props {
+	navigation: any;
+}
+
+function Main({ navigation }: Props) {
 	//state (redux)
 	const { data, filters, loading, error } = useSelector(
 		(store: any) => store.items
@@ -188,7 +193,7 @@ function Main({ navigation, route }) {
 						onRefresh={handleRefreshList}
 						renderItem={({ item }) => (
 							<CardItem
-								itemKey={item.id?.toString()}
+								key={item.id?.toString()}
 								image={item.backgroundImage.preview}
 								title={item.city}
 								subTitle={item.country}

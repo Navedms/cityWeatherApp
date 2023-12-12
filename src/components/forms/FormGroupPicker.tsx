@@ -5,7 +5,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import ErrorMessage from "./ErrorMessage";
 import colors from "../../config/colors";
-import defaultStyle from "../../config/style";
 import Text from "../Text";
 
 interface Item {

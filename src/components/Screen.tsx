@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import Constants from 'expo-constants';
-import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
-import colors from '../config/colors';
+import React from "react";
+import Constants from "expo-constants";
+import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
+
+import colors from "../config/colors";
 
 interface ScreenProps {
 	children: JSX.Element | JSX.Element[];

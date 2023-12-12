@@ -37,7 +37,6 @@ function AppButton({
 			activeOpacity={0.5}
 			style={[
 				styles.button,
-				defaultStyle.rtlRow,
 				{
 					backgroundColor: colors[backgroundColor],
 					opacity: disabled ? 0.5 : 1,
@@ -69,6 +68,7 @@ function AppButton({
 
 const styles = StyleSheet.create({
 	button: {
+		flexDirection: "row",
 		backgroundColor: colors.primary,
 		borderRadius: 25,
 		justifyContent: "center",

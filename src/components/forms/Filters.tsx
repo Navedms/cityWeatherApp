@@ -128,7 +128,7 @@ function Filters({
 			}}
 			onSubmit={handleSubmit}
 			validationSchema={validationSchema}>
-			<View style={defaultStyle.rtlRow}>
+			<View style={styles.rowContainer}>
 				<View style={styles.filtersContainer}>
 					<TouchableOpacity onPress={() => setVisible(true)}>
 						<View style={styles.trigerContainer}>
@@ -215,6 +215,9 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		padding: 10,
 		alignItems: "center",
+	},
+	rowContainer: {
+		flexDirection: "row",
 	},
 	header: {
 		padding: 10,

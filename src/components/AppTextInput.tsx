@@ -50,7 +50,6 @@ function AppTextInput({
 	return (
 		<View
 			style={[
-				defaultStyle.rtlRow,
 				styles.container,
 				{
 					backgroundColor: backgroundColor,
@@ -133,6 +132,7 @@ function AppTextInput({
 
 const styles = StyleSheet.create({
 	container: {
+		flexDirection: "row",
 		borderRadius: 8,
 		paddingVertical: 12,
 		marginVertical: 10,

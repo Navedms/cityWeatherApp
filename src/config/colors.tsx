@@ -14,8 +14,6 @@ const colors: Colors = {
 	darkMedium: "#a6a6a6",
 	medium: "#d9d9d9",
 	light: "#f2f2f2",
-	veryLight: "#FEFEFE",
-	ok: "#53c68c",
 	delete: "#ff3333",
 	lightDelete: "#FF7D7D",
 	sun: "#fff12e",

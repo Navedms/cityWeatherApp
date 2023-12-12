@@ -1,10 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
 import { SelectedFilters } from "../../components/forms/Filters";
-import dataApi, { Data, IFilters, Sort } from "../../api/data";
-import WatherApi, {
-	ApiDataProps,
-	CurrentWeatherData,
-} from "../../api/currentWeather";
+import dataApi, { Data } from "../../api/data";
+import WatherApi, { CurrentWeatherData } from "../../api/currentWeather";
 import FindCityApi from "../../api/findCity";
 import FiveDaysApi, {
 	ApiFiveProps,
@@ -40,6 +38,7 @@ const initialState: InitialState = {
 	currentFiveDaysData: undefined,
 };
 
+// get the preliminary information about the cities (MOC data)
 export const getData = createAsyncThunk(
 	"items/getData",
 	async (filters: SelectedFilters, thunkAPI) => {
@@ -48,6 +47,7 @@ export const getData = createAsyncThunk(
 	}
 );
 
+// get the city key from accuweather.com - Using this key, we can get the weather data in the specific selected city.
 export const findCity = createAsyncThunk(
 	"items/findCity",
 	async (city: string, thunkAPI) => {
@@ -56,6 +56,7 @@ export const findCity = createAsyncThunk(
 	}
 );
 
+// get the current weather data in the specific selected city.
 export const getCurrentWeather = createAsyncThunk(
 	"items/getCurrentWeather",
 	async (key: string, thunkAPI) => {
@@ -63,6 +64,8 @@ export const getCurrentWeather = createAsyncThunk(
 		return response.data;
 	}
 );
+
+// get the a 5-day forecast data in the specific selected city.
 export const getFiveDays = createAsyncThunk(
 	"items/getFiveDays",
 	async (data: ApiFiveProps, thunkAPI) => {
@@ -81,6 +84,7 @@ const dataSlice = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
+		// get MOC data Cases
 		builder.addCase(getData.pending, (state, action) => {
 			state.loading = true;
 		});
@@ -92,14 +96,18 @@ const dataSlice = createSlice({
 			state.error = "Error: Unable to patch data. Try again later.";
 			state.loading = false;
 		});
+
+		// get city key Cases
 		builder.addCase(findCity.pending, (state, action) => {
 			state.loading = true;
 		});
 		builder.addCase(findCity.fulfilled, (state, action: any) => {
 			state.loading = false;
+			// patch error: Because the accuweather.com API key we use is a free key for developers. There is a limit of 50 requests per day.
 			if (action.payload?.Code === "ServiceUnavailable") {
 				state.error = `Error: ${action.payload?.Message}`;
 			} else {
+				// get the key and adds it to the correct city.
 				const objIndex = state.data.findIndex(
 					(item) => item.city == action.payload?.[0].EnglishName
 				);
@@ -111,6 +119,8 @@ const dataSlice = createSlice({
 			state.error = "Error: Unable to patch data. Try again later.";
 			state.loading = false;
 		});
+
+		// get Current Weather data Cases
 		builder.addCase(getCurrentWeather.pending, (state, action) => {
 			state.loading = true;
 		});
@@ -127,6 +137,8 @@ const dataSlice = createSlice({
 			state.error = "Error: Unable to patch data. Try again later.";
 			state.loading = false;
 		});
+
+		// get Five Days data Cases
 		builder.addCase(getFiveDays.pending, (state, action) => {
 			state.loading = true;
 		});
